@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CivicConnect helps citizens find public services, understand procedures and prepare complaints.">
+  <title>CivicConnect | Public Services, Made Simpler</title>
+  <link rel="stylesheet" href="civicconnect.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="#" class="brand" aria-label="CivicConnect home">
+        <span class="brand-mark">C</span>
+        <span>CivicConnect</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#complaint">Prepare a complaint</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#track">Track</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline" id="authButton" type="button">Log in</button>
+        <a class="btn btn-primary" href="#services">Find a service</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Public services, made simpler</span>
+          <h1>Find the right service. <span>Know your next step.</span></h1>
+          <p>
+            A simple guide to public services in India. Explore procedures,
+            understand document requirements and find the official channel
+            for your next step.
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">Explore services</a>
+            <a href="#complaint" class="btn btn-secondary">Prepare a complaint</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Popular services">
+          <h3>Popular starting points</h3>
+          <a class="quick-link" href="#services">
+            <span class="quick-icon" aria-hidden="true">▤</span>
+            <span>
+              <strong>Government documents</strong>
+              <small>Find document and application guidance</small>
+            </span>
+          </a>
+          <a class="quick-link" href="#services">
+            <span class="quick-icon" aria-hidden="true">⚖</span>
+            <span>
+              <strong>Public grievances</strong>
+              <small>Understand where and how to raise an issue</small>
+            </span>
+          </a>
+          <a class="quick-link" href="#services">
+            <span class="quick-icon" aria-hidden="true">₹</span>
+            <span>
+              <strong>Consumer support</strong>
+              <small>Find consumer complaint resources</small>
+            </span>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- LIVE STATS (shown only when backend responds) -->
+    <section id="statsSection" class="section hidden" style="padding:32px 0 0;">
+      <div class="container stats-grid">
+        <div class="stat-card"><span>Complaints prepared</span><strong id="statTotal">0</strong></div>
+        <div class="stat-card"><span>In progress</span><strong id="statProgress">0</strong></div>
+        <div class="stat-card"><span>Resolved</span><strong id="statResolved">0</strong></div>
+        <div class="stat-card"><span>Found guidance helpful</span><strong id="statHelpful">–</strong></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Explore by need</span>
+            <h2>What do you need help with?</h2>
+            <p>Search the directory or choose a category to get started.</p>
+          </div>
+        </div>
+
+        <div class="search-bar">
+          <span aria-hidden="true">⌕</span>
+          <input id="serviceSearch" type="search" placeholder="Search services, e.g. consumer complaint..." aria-label="Search services">
+          <button class="btn btn-primary" id="searchButton" type="button">Search</button>
+        </div>
+
+        <div class="filter-row" aria-label="Filter services">
+          <button class="filter-chip active" type="button" data-filter="all">All services</button>
+          <button class="filter-chip" type="button" data-filter="documents">Documents</button>
+          <button class="filter-chip" type="button" data-filter="grievance">Grievances</button>
+          <button class="filter-chip" type="button" data-filter="consumer">Consumer</button>
+          <button class="filter-chip" type="button" data-filter="education">Education</button>
+        </div>
+
+        <div class="card-grid" id="serviceGrid">
+          <article class="card service-card" data-key="documents" data-category="documents" data-search="pan passport government documents identity application">
+            <img class="card-media" src="images/documents.jpg" alt="Illustration of an official document with a checkmark stamp" loading="lazy">
+            <h3>Government documents</h3>
+            <p>Find starting points and guidance for common identity and government document services.</p>
+            <a class="card-link" href="https://web.umang.gov.in/" target="_blank" rel="noopener noreferrer">Explore UMANG ↗</a>
+            <button class="btn btn-secondary btn-block mt-2" type="button" data-select="documents">View problems &amp; solutions</button>
+          </article>
+
+          <article class="card service-card" data-key="grievance" data-category="grievance" data-search="public grievance complaint government department cpgrams">
+            <img class="card-media" src="images/grievance.jpg" alt="Illustration of a complaint message addressed to a government building" loading="lazy">
+            <h3>Public grievances</h3>
+            <p>Understand how to prepare and submit a grievance to the appropriate public authority.</p>
+            <a class="card-link" href="https://pgportal.gov.in/" target="_blank" rel="noopener noreferrer">Visit CPGRAMS ↗</a>
+            <button class="btn btn-secondary btn-block mt-2" type="button" data-select="grievance">View problems &amp; solutions</button>
+          </article>
+
+          <article class="card service-card" data-key="consumer" data-category="consumer" data-search="consumer complaint defective product misleading service helpline">
+            <img class="card-media" src="images/consumer.jpg" alt="Illustration of a shopping bag with a rupee symbol and a resolved checkmark" loading="lazy">
+            <h3>Consumer complaints</h3>
+            <p>Find guidance and official resources for problems with products and services.</p>
+            <a class="card-link" href="https://consumerhelpline.gov.in/" target="_blank" rel="noopener noreferrer">Visit Consumer Helpline ↗</a>
+            <button class="btn btn-secondary btn-block mt-2" type="button" data-select="consumer">View problems &amp; solutions</button>
+          </article>
+
+          <article class="card service-card" data-key="education" data-category="education" data-search="education scholarship student financial assistance">
+            <img class="card-media" src="images/education.jpg" alt="Illustration of a graduation cap and stacked books" loading="lazy">
+            <h3>Education assistance</h3>
+            <p>Explore scholarship information and learn where to check official eligibility requirements.</p>
+            <a class="card-link" href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer">Visit National Scholarship Portal ↗</a>
+            <button class="btn btn-secondary btn-block mt-2" type="button" data-select="education">View problems &amp; solutions</button>
+          </article>
+
+          <article class="card service-card" data-key="local" data-category="grievance" data-search="state local municipal services water sanitation roads electricity">
+            <img class="card-media" src="images/local.jpg" alt="Illustration of city buildings, a road and a water drop" loading="lazy">
+            <h3>State and local services</h3>
+            <p>Find the relevant state, district or municipal service directory for your location.</p>
+            <a class="card-link" href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">Visit National Portal of India ↗</a>
+            <button class="btn btn-secondary btn-block mt-2" type="button" data-select="local">View problems &amp; solutions</button>
+          </article>
+
+          <article class="card service-card" data-key="digital" data-category="documents" data-search="digital documents certificates digilocker">
+            <img class="card-media" src="images/digital.jpg" alt="Illustration of a phone showing a secure digital document locker" loading="lazy">
+            <h3>Digital documents</h3>
+            <p>Learn about accessing and managing eligible digital documents through official services.</p>
+            <a class="card-link" href="https://www.digilocker.gov.in/" target="_blank" rel="noopener noreferrer">Visit DigiLocker ↗</a>
+            <button class="btn btn-secondary btn-block mt-2" type="button" data-select="digital">View problems &amp; solutions</button>
+          </article>
+        </div>
+
+        <p id="noResults" class="empty-state hidden mt-3">No matching services found. Try another search term or category.</p>
+
+        <!-- SELECTED INITIATIVE: PROBLEMS AND SOLUTIONS -->
+        <section id="initiativeDetail" class="initiative-detail hidden" aria-live="polite" tabindex="-1">
+          <div class="initiative-head">
+            <img id="detailImage" src="" alt="">
+            <div class="initiative-head-text">
+              <span class="eyebrow">Selected initiative</span>
+              <h3 id="detailTitle"></h3>
+              <p id="detailIntro"></p>
+              <div class="hero-actions">
+                <a id="detailLink" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer"></a>
+                <button id="detailClose" class="btn btn-outline" type="button">Close</button>
+              </div>
+            </div>
+          </div>
+          <div class="ps-list" id="detailList"></div>
+          <div class="mt-2">
+            <strong>Was this guidance helpful?</strong>
+            <button class="filter-chip" type="button" data-helpful="yes">Yes</button>
+            <button class="filter-chip" type="button" data-helpful="no">No</button>
+            <span id="feedbackMessage" class="form-hint" role="status" aria-live="polite"></span>
+          </div>
+          <p class="form-hint mt-2">Guidance is general. Confirm current rules, fees and timelines on the official portal.</p>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works" style="background:#edf4f0;">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">A clearer process</span>
+            <h2>Three steps to get started</h2>
+            <p>CivicConnect helps you prepare before visiting an official portal.</p>
+          </div>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-icon">01</div>
+            <h3>Choose your service</h3>
+            <p>Search by your need or browse the available public-service categories.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">02</div>
+            <h3>Understand the requirements</h3>
+            <p>Review the guidance, documents and information you may need to prepare.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">03</div>
+            <h3>Continue through the official channel</h3>
+            <p>Use the verified official link to check current rules and complete the process.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPLAINT PREPARATION -->
+    <section class="section" id="complaint">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Complaint preparation tool</span>
+            <h2>Put your concern into clear words</h2>
+            <p>Create a draft that you can review, copy and submit through the relevant official channel.</p>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="complaintForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="complaintCategory">Issue category</label>
+                <select class="form-control" id="complaintCategory" required>
+                  <option value="">Select a category</option>
+                  <option>Water supply</option>
+                  <option>Roads and streetlights</option>
+                  <option>Sanitation and waste</option>
+                  <option>Electricity</option>
+                  <option>Consumer issue</option>
+                  <option>Other public service</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="complaintLocation">City / District / State</label>
+                <input class="form-control" id="complaintLocation" type="text" placeholder="e.g. Jaipur, Rajasthan" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="complaintSubject">Short subject</label>
+                <input class="form-control" id="complaintSubject" type="text" maxlength="100" placeholder="Briefly describe the issue" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="complaintDetails">Describe the issue</label>
+                <textarea class="form-control" id="complaintDetails" maxlength="1500" placeholder="Explain what happened, where it happened and when you noticed it..." required></textarea>
+                <span class="form-hint">Do not include Aadhaar numbers, bank details or other sensitive personal information.</span>
+              </div>
+
+              <div class="form-group full-width">
+                <button class="btn btn-primary" type="submit">Generate complaint draft</button>
+              </div>
+            </div>
+          </form>
+
+          <div id="draftSection" class="hidden mt-3">
+            <div class="notice mb-2">
+              This is a locally generated draft. It has not been submitted to any government department.
+            </div>
+            <label for="complaintDraft"><strong>Your complaint draft</strong></label>
+            <textarea id="complaintDraft" class="form-control mt-1" rows="9" readonly></textarea>
+            <button id="copyDraft" class="btn btn-secondary mt-2" type="button">Copy draft</button>
+            <span id="copyMessage" class="form-hint" role="status" aria-live="polite"></span>
+            <div class="mt-2">
+              <button id="saveComplaint" class="btn btn-primary" type="button">Save &amp; get a tracking number</button>
+              <p class="form-hint mt-1">Saved to CivicConnect only, so you can track its status here. It is not forwarded to any government department.</p>
+              <p id="saveMessage" class="mt-1" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK COMPLAINT -->
+    <section class="section" id="track" style="background:#edf4f0;">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Track your record</span>
+            <h2>Check a complaint status</h2>
+            <p>Enter the reference number you received when you saved your complaint.</p>
+          </div>
+        </div>
+        <form id="trackForm" class="search-bar">
+          <input id="trackInput" type="text" placeholder="e.g. CC-2026-123456" aria-label="Complaint reference number" required>
+          <button class="btn btn-primary" type="submit">Track</button>
+        </form>
+        <div id="myComplaints" class="hidden mt-3">
+          <strong>Your saved complaints</strong>
+          <div id="myComplaintList" class="filter-row"></div>
+        </div>
+        <div id="trackResult" class="mt-3" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- IMPORTANT NOTICE -->
+    <section class="section">
+      <div class="container">
+        <div class="notice">
+          <strong>Important:</strong> CivicConnect is an independent guidance project, not a government website.
+          Service rules and document requirements can change. Always verify current information on the linked
+          official portal. Reports and complaint drafts created in this demonstration are not automatically
+          sent to government authorities.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LOGIN / REGISTER -->
+  <dialog id="authDialog" class="auth-dialog" aria-labelledby="authTitle">
+    <form id="authForm">
+      <h3 id="authTitle">Log in</h3>
+      <div class="form-group hidden"><label for="authName">Full name</label><input class="form-control" id="authName" type="text" autocomplete="name"></div>
+      <div class="form-group mt-2"><label for="authEmail">Email</label><input class="form-control" id="authEmail" type="email" autocomplete="email" required></div>
+      <div class="form-group mt-2"><label for="authPassword">Password</label><input class="form-control" id="authPassword" type="password" minlength="8" autocomplete="current-password" required><span class="form-hint">At least 8 characters.</span></div>
+      <p id="authMessage" class="mt-1" role="alert"></p>
+      <div class="hero-actions mt-2">
+        <button class="btn btn-primary" id="authSubmit" type="submit">Log in</button>
+        <button class="btn btn-outline" id="authCancel" type="button">Cancel</button>
+      </div>
+      <button class="card-link mt-2" id="authSwitch" type="button" style="background:none;border:0;cursor:pointer;"></button>
+    </form>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>CivicConnect</h3>
+          <p>Helping citizens understand public services and find the right official channel.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Service directory</a></li>
+            <li><a href="#complaint">Complaint preparation</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Official resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">National Portal of India</a></li>
+            <li><a href="https://web.umang.gov.in/" target="_blank" rel="noopener noreferrer">UMANG</a></li>
+            <li><a href="https://pgportal.gov.in/" target="_blank" rel="noopener noreferrer">CPGRAMS</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 CivicConnect — Independent citizen guidance prototype.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Service search and category filtering
+    const searchInput = document.getElementById("serviceSearch");
+    const searchButton = document.getElementById("searchButton");
+    const filterButtons = document.querySelectorAll(".filter-chip");
+    const serviceCards = document.querySelectorAll(".service-card");
+    const noResults = document.getElementById("noResults");
+
+    let activeCategory = "all";
+
+    function filterServices() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      serviceCards.forEach((card) => {
+        const categoryMatches =
+          activeCategory === "all" || card.dataset.category === activeCategory;
+
+        const searchableText =
+          (card.dataset.search + " " + card.innerText).toLowerCase();
+
+        const textMatches = searchableText.includes(query);
+        const shouldShow = categoryMatches && textMatches;
+
+        card.classList.toggle("hidden", !shouldShow);
+        if (shouldShow) visibleCount++;
+      });
+
+      noResults.classList.toggle("hidden", visibleCount !== 0);
+    }
+
+    searchInput.addEventListener("input", filterServices);
+    searchButton.addEventListener("click", filterServices);
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        activeCategory = button.dataset.filter;
+        filterServices();
+      });
+    });
+
+    // Problems and solutions for each initiative
+    const initiatives = {
+      documents: {
+        title: "Government documents",
+        intro: "Common hurdles people face when applying for identity and government documents, and practical ways to handle them.",
+        link: ["https://web.umang.gov.in/", "Open UMANG ↗"],
+        items: [
+          ["Not sure which document or application is needed", "Search the service by name on UMANG, which lists services by department, so you can see the right application route before you start."],
+          ["Name, date of birth or address does not match across documents", "Compare details on your existing records before applying. If a correction is needed, request it from the authority that issued that document first."],
+          ["Unofficial agents or look-alike websites", "Start only from official links ending in .gov.in and check the fee listed on the official service page before paying anything."]
+        ]
+      },
+      grievance: {
+        title: "Public grievances",
+        intro: "Raising an issue with a public authority is easier when you know where it goes and what to include.",
+        link: ["https://pgportal.gov.in/", "Open CPGRAMS ↗"],
+        items: [
+          ["Unsure which department handles the issue", "Choose the ministry or department closest to your issue on CPGRAMS. For local matters, check the state or municipal channel."],
+          ["Complaint is vague and gets delayed", "State what happened, where and when, and what you already tried. The complaint draft tool on this site helps you structure this."],
+          ["No response after submitting", "Save your registration number, track the status on the portal, and use the appeal or follow-up option if the reply is missing or unsatisfactory."]
+        ]
+      },
+      consumer: {
+        title: "Consumer complaints",
+        intro: "Problems with products and services can often be resolved faster when your evidence is organised.",
+        link: ["https://consumerhelpline.gov.in/", "Open Consumer Helpline ↗"],
+        items: [
+          ["Seller refuses a refund or replacement for a defective product", "Keep the invoice, photos and messages. Write to the seller first, then register a complaint with the National Consumer Helpline (1915)."],
+          ["Misleading advertisement or service not as promised", "Save screenshots, advertisement copies and order details so the claim can be compared with what you actually received."],
+          ["Complaint remains unresolved", "Note your complaint number and follow up through the helpline. Unresolved cases can be taken to the appropriate Consumer Commission."]
+        ]
+      },
+      education: {
+        title: "Education assistance",
+        intro: "Scholarships can be missed because of deadlines and paperwork rather than eligibility.",
+        link: ["https://scholarships.gov.in/", "Open National Scholarship Portal ↗"],
+        items: [
+          ["Missing application deadlines", "Check the opening and closing dates for your scheme on the portal and note them down early."],
+          ["Unclear whether you are eligible", "Read each scheme's eligibility conditions on the portal before applying, covering course, category and income criteria."],
+          ["Application rejected over document or bank detail errors", "Prepare certificates in advance and double-check your bank account details and name spelling before submitting."]
+        ]
+      },
+      local: {
+        title: "State and local services",
+        intro: "Water, roads, sanitation and electricity are handled by state, district or municipal offices, so finding the right one matters.",
+        link: ["https://www.india.gov.in/", "Open National Portal of India ↗"],
+        items: [
+          ["Do not know which office is responsible", "Use the National Portal of India to reach your state, district or city directory and identify the relevant department."],
+          ["Local issue such as a broken road or water supply keeps recurring", "Report it to the ward or municipal office with the exact location and date, and attach a photo if possible."],
+          ["Earlier reports got no action", "Quote your earlier reference number, then escalate to the next-level officer or the state grievance channel."]
+        ]
+      },
+      digital: {
+        title: "Digital documents",
+        intro: "Keeping certificates and IDs in a digital locker reduces the risk of losing paper copies.",
+        link: ["https://www.digilocker.gov.in/", "Open DigiLocker ↗"],
+        items: [
+          ["Carrying and losing physical copies", "Store eligible issued documents in DigiLocker so you can access them from your phone when needed."],
+          ["Unsure whether an office will accept the digital copy", "Documents issued through DigiLocker are recognised as equivalent to originals under Indian IT rules, but confirm with the requesting office."],
+          ["Document is not showing in your locker", "Check that the issuing department provides it through DigiLocker, and fetch it using the details they ask for."]
+        ]
+      }
+    };
+
+    const detail = document.getElementById("initiativeDetail");
+    const detailList = document.getElementById("detailList");
+
+    function selectInitiative(key) {
+      const data = initiatives[key];
+      if (!data) return;
+
+      serviceCards.forEach((card) =>
+        card.classList.toggle("selected", card.dataset.key === key)
+      );
+      document.querySelectorAll("[data-select]").forEach((btn) => {
+        btn.setAttribute("aria-pressed", btn.dataset.select === key);
+      });
+
+      const sourceImg = document.querySelector(`.service-card[data-key="${key}"] .card-media`);
+      document.getElementById("detailImage").src = sourceImg.getAttribute("src");
+      document.getElementById("detailImage").alt = sourceImg.alt;
+      document.getElementById("detailTitle").textContent = data.title + ": problems and solutions";
+      document.getElementById("detailIntro").textContent = data.intro;
+      const link = document.getElementById("detailLink");
+      link.href = data.link[0];
+      link.textContent = data.link[1];
+
+      detailList.innerHTML = "";
+      data.items.forEach(([problem, solution], index) => {
+        const row = document.createElement("article");
+        row.className = "ps-row";
+        row.innerHTML =
+          `<div class="ps-problem"><span class="ps-tag">Problem ${index + 1}</span><p></p></div>
+           <div class="ps-solution"><span class="ps-tag">Solution</span><p></p></div>`;
+        row.querySelector(".ps-problem p").textContent = problem;
+        row.querySelector(".ps-solution p").textContent = solution;
+        detailList.appendChild(row);
+      });
+
+      detail.classList.remove("hidden");
+      detail.scrollIntoView({ behavior: "smooth", block: "start" });
+      detail.focus({ preventScroll: true });
+    }
+
+    document.querySelectorAll("[data-select]").forEach((btn) =>
+      btn.addEventListener("click", () => selectInitiative(btn.dataset.select))
+    );
+
+    document.getElementById("detailClose").addEventListener("click", () => {
+      detail.classList.add("hidden");
+      serviceCards.forEach((card) => card.classList.remove("selected"));
+    });
+
+    // Generate a complaint draft locally; nothing is submitted.
+    const complaintForm = document.getElementById("complaintForm");
+    const draftSection = document.getElementById("draftSection");
+    const complaintDraft = document.getElementById("complaintDraft");
+    const copyDraftButton = document.getElementById("copyDraft");
+    const copyMessage = document.getElementById("copyMessage");
+
+    complaintForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const category = document.getElementById("complaintCategory").value;
+      const location = document.getElementById("complaintLocation").value.trim();
+      const subject = document.getElementById("complaintSubject").value.trim();
+      const details = document.getElementById("complaintDetails").value.trim();
+
+      const draft =
+`Subject: ${subject}
+
+Respected Sir/Madam,
+
+I would like to bring to your attention an issue related to ${category.toLowerCase()} in ${location}.
+
+Details of the issue:
+${details}
+
+I request the concerned department to review this matter and take appropriate action. Please let me know if any additional information is required.
+
+Thank you.`;
+
+      complaintDraft.value = draft;
+      draftSection.classList.remove("hidden");
+      copyMessage.textContent = "";
+    });
+
+    copyDraftButton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(complaintDraft.value);
+        copyMessage.textContent = "Draft copied to clipboard.";
+      } catch (error) {
+        complaintDraft.select();
+        document.execCommand("copy");
+        copyMessage.textContent = "Draft copied. If copying failed, select and copy the text manually.";
+      }
+    });
+  </script>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app-backend.js"></script>
+</body>
+</html>
