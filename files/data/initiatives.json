@@ -1,0 +1,63 @@
+{
+  "documents": {
+    "title": "Government documents",
+    "intro": "Common hurdles people face when applying for identity and government documents, and practical ways to handle them.",
+    "link": ["https://web.umang.gov.in/", "Open UMANG ↗"],
+    "items": [
+      ["Not sure which document or application is needed", "Search the service by name on UMANG, which lists services by department, so you can see the right application route before you start."],
+      ["Name, date of birth or address does not match across documents", "Compare details on your existing records before applying. If a correction is needed, request it from the authority that issued that document first."],
+      ["Unofficial agents or look-alike websites", "Start only from official links ending in .gov.in and check the fee listed on the official service page before paying anything."]
+    ]
+  },
+  "grievance": {
+    "title": "Public grievances",
+    "intro": "Raising an issue with a public authority is easier when you know where it goes and what to include.",
+    "link": ["https://pgportal.gov.in/", "Open CPGRAMS ↗"],
+    "items": [
+      ["Unsure which department handles the issue", "Choose the ministry or department closest to your issue on CPGRAMS. For local matters, check the state or municipal channel."],
+      ["Complaint is vague and gets delayed", "State what happened, where and when, and what you already tried. The complaint draft tool on this site helps you structure this."],
+      ["No response after submitting", "Save your registration number, track the status on the portal, and use the appeal or follow-up option if the reply is missing or unsatisfactory."]
+    ]
+  },
+  "consumer": {
+    "title": "Consumer complaints",
+    "intro": "Problems with products and services can often be resolved faster when your evidence is organised.",
+    "link": ["https://consumerhelpline.gov.in/", "Open Consumer Helpline ↗"],
+    "items": [
+      ["Seller refuses a refund or replacement for a defective product", "Keep the invoice, photos and messages. Write to the seller first, then register a complaint with the National Consumer Helpline (1915)."],
+      ["Misleading advertisement or service not as promised", "Save screenshots, advertisement copies and order details so the claim can be compared with what you actually received."],
+      ["Complaint remains unresolved", "Note your complaint number and follow up through the helpline. Unresolved cases can be taken to the appropriate Consumer Commission."]
+    ]
+  },
+  "education": {
+    "title": "Education assistance",
+    "intro": "Scholarships can be missed because of deadlines and paperwork rather than eligibility.",
+    "link": ["https://scholarships.gov.in/", "Open National Scholarship Portal ↗"],
+    "items": [
+      ["Missing application deadlines", "Check the opening and closing dates for your scheme on the portal and note them down early."],
+      ["Unclear whether you are eligible", "Read each scheme's eligibility conditions on the portal before applying, covering course, category and income criteria."],
+      ["Application rejected over document or bank detail errors", "Prepare certificates in advance and double-check your bank account details and name spelling before submitting."]
+    ]
+  },
+  "local": {
+    "title": "State and local services",
+    "intro": "Water, roads, sanitation and electricity are handled by state, district or municipal offices, so finding the right one matters.",
+    "link": ["https://www.india.gov.in/", "Open National Portal of India ↗"],
+    "items": [
+      ["Do not know which office is responsible", "Use the National Portal of India to reach your state, district or city directory and identify the relevant department."],
+      ["Local issue such as a broken road or water supply keeps recurring", "Report it to the ward or municipal office with the exact location and date, and attach a photo if possible."],
+      ["Earlier reports got no action", "Quote your earlier reference number, then escalate to the next-level officer or the state grievance channel."]
+    ]
+  },
+  "digital": {
+    "title": "Digital documents",
+    "intro": "Keeping certificates and IDs in a digital locker reduces the risk of losing paper copies.",
+    "link": ["https://www.digilocker.gov.in/", "Open DigiLocker ↗"],
+    "items": [
+      ["Carrying and losing physical copies", "Store eligible issued documents in DigiLocker so you can access them from your phone when needed."],
+      ["Unsure whether an office will accept the digital copy", "Documents issued through DigiLocker are recognised as equivalent to originals under Indian IT rules, but confirm with the requesting office."],
+      ["Document is not showing in your locker", "Check that the issuing department provides it through DigiLocker, and fetch it using the details they ask for."]
+    ]
+  }
+}
+
