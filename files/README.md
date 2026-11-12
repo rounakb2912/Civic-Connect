@@ -10,7 +10,7 @@ npm install
 cp .env.example .env      # then edit JWT_SECRET and ADMIN_KEY
 npm run dev
 ```
-Open `index.html` with VS Code Live Server (http://127.0.0.1:5500). Set `CLIENT_ORIGIN` in `.env` to that address.
+Open `index.html` with VS Code Live Server (https://civic-connect-3t8c.onrender.com/). Set `CLIENT_ORIGIN` in `.env` to that address.
 If you change the API address, edit `js/config.js`.
 
 ## Endpoints

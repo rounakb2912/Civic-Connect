@@ -1,8 +1,8 @@
 require('dotenv').config();
-const express   = require('express');
-const cors      = require('cors');
-const helmet    = require('helmet');
-const path      = require('path');
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const path = require('path');
 const rateLimit = require('express-rate-limit');
 const { initDB } = require('./db');
 
@@ -21,11 +21,11 @@ async function main() {
 
   // ── API routes ─────────────────────────────────────────────────
   app.get('/api/health', (req, res) => res.json({ ok: true }));
-  app.use('/api/auth',        require('./routes/auth'));
+  app.use('/api/auth', require('./routes/auth'));
   app.use('/api/initiatives', require('./routes/initiatives'));
-  app.use('/api/complaints',  require('./routes/complaints'));
-  app.use('/api/feedback',    require('./routes/feedback'));
-  app.use('/api/stats',       require('./routes/stats'));
+  app.use('/api/complaints', require('./routes/complaints'));
+  app.use('/api/feedback', require('./routes/feedback'));
+  app.use('/api/stats', require('./routes/stats'));
 
   // ── Serve the frontend (index.html, CSS, JS, images) ──────────
   app.use(express.static(path.join(__dirname)));
@@ -45,7 +45,7 @@ async function main() {
   });
 
   const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => console.log(`CivicConnect running on http://localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`CivicConnect running on https://civic-connect-3t8c.onrender.com/`));
 }
 
 main().catch((err) => { console.error('Failed to start:', err); process.exit(1); });
