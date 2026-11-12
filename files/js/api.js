@@ -2,6 +2,17 @@
 window.CC_API = (() => {
   const TOKEN_KEY = "cc_token";
 
+  function getBaseUrl() {
+    // If on HTTPS or any hosted domain (Render, custom domain), always use relative /api
+    if (typeof window !== "undefined" && (window.location.protocol === "https:" || !["localhost", "127.0.0.1"].includes(window.location.hostname))) {
+      return "/api";
+    }
+    if (typeof window !== "undefined" && window.CC_CONFIG && window.CC_CONFIG.API_BASE) {
+      return window.CC_CONFIG.API_BASE;
+    }
+    return "/api";
+  }
+
   async function request(path, { method = "GET", body, auth = true } = {}) {
     const headers = { "Content-Type": "application/json" };
     const token = localStorage.getItem(TOKEN_KEY);
@@ -9,7 +20,9 @@ window.CC_API = (() => {
 
     let res;
     try {
-      res = await fetch(window.CC_CONFIG.API_BASE + path, {
+      const baseUrl = getBaseUrl().replace(/\/+$/, "");
+      const cleanPath = path.startsWith("/") ? path : "/" + path;
+      res = await fetch(baseUrl + cleanPath, {
         method, headers, body: body ? JSON.stringify(body) : undefined
       });
     } catch {
