@@ -26,7 +26,7 @@ window.CC_API = (() => {
         method, headers, body: body ? JSON.stringify(body) : undefined
       });
     } catch {
-      throw new Error("Cannot reach the server. Please check that the backend is running.");
+      throw new Error("Server unreachable.");
     }
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.error || "Something went wrong. Please try again.");
